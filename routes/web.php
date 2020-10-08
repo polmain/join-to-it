@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=>['auth:sanctum', 'verified']],function (){
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('companies/ajax',[App\Http\Controllers\CompanyController::class, 'ajax'])->name('companies.ajax');
+    Route::resource('companies',App\Http\Controllers\CompanyController::class);
+});
+
