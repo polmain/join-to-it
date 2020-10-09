@@ -14,7 +14,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('company');
+        return view('company.index');
     }
 
     /**
@@ -29,10 +29,14 @@ class CompanyController extends Controller
         return datatables()
             ->eloquent($companies)
             ->addColumn('logo_html', function (Company $company) {
-                return '';
+                if($company->logo){
+                    return $company->logo;
+                }else{
+                    return '';
+                }
             })
             ->addColumn('actions', function (Company $company) {
-                return '';
+                return view('company.action_buttons', compact('company'))->render();
             })
             ->rawColumns(['logo_html','actions'])
             ->toJson();

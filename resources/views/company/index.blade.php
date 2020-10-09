@@ -16,7 +16,7 @@
                         <th>@lang('company.table_header_logo')</th>
                         <th>@lang('company.table_header_email')</th>
                         <th>@lang('company.table_header_website')</th>
-                        <th></th>
+                        <th style="min-width: 100px"></th>
                     </tr>
                     </thead>
                     <tbody></tbody>
