@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('companies.index') }}" :active="request()->routeIs('companies.index')">
                         @lang('company.page_name')
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('employees.index') }}" :active="request()->routeIs('employees.index')">
+                        @lang('employee.page_name')
+                    </x-jet-nav-link>
                 </div>
             </div>
 

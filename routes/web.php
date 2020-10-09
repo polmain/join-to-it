@@ -19,7 +19,10 @@ Route::group(['middleware'=>['auth:sanctum', 'verified']],function (){
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+
     Route::get('companies/ajax',[App\Http\Controllers\CompanyController::class, 'ajax'])->name('companies.ajax');
     Route::resource('companies',App\Http\Controllers\CompanyController::class);
+    Route::get('employees/ajax',[App\Http\Controllers\EmployeeController::class, 'ajax'])->name('employees.ajax');
+    Route::resource('employees',App\Http\Controllers\EmployeeController::class);
 });
 
